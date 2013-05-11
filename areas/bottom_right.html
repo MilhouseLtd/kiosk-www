@@ -1,0 +1,70 @@
+
+<style>
+.container {
+    position: relative;
+    height: 250px;
+}
+
+.wrap {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 300px;
+    height: 200px;
+}
+
+.wrapInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.x {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+</style>
+
+
+<div class="container ex1">
+    <div class="output"></div>
+
+    <div class="wrap">
+        <div class="wrapInner">
+            <div class="x">x</div>
+        </div>
+    </div>
+</div>
+<div class="container ex2">
+    <div class="output"></div>
+
+    <div class="wrap">
+        <div class="wrapInner">
+            <div class="x">x</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function runExample(container, sinDivide, cosDivide) {
+    var track = function(x, y, top, ampl) {
+        return {
+            top : top + 2,
+            x   : x + ampl * Math.sin(top / sinDivide),
+            y   : (top / this.screenHeight < 0.65) ? y + 2 : 1 + y + ampl * Math.cos(top / cosDivide)
+        };
+    }
+
+    var top = 90;
+    setInterval(function() {
+        var current = track(50, 50, top, 33);
+        $('.output', container).text(JSON.stringify(current));
+        $('.x', container).css({left: current.x + 'px', top: current.y + 'px'});
+        top = current.top;
+    }, 30);
+}
+
+runExample($('.ex1'), 20, 25);
+//runExample($('.ex1'), 1, 1);
+</script>

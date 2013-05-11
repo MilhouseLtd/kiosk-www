@@ -1,0 +1,55 @@
+<!DOCTYPE xhtml>
+<html>
+<head>
+  <title>Kiosk Test</title>
+  <link href="main.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+</head>
+
+<body>
+
+  <div id="header">header</div>
+
+  <div id="container_top">
+    <div class="left" id="top_left">1<br></div>
+    <div class="middle" id="top_middle">2<br></div>
+    <div class="right" id="top_right"><iframe id="ifrm" src="areas/top_right.html"></iframe></div>
+    <span class="stretch"></span>
+  </div>
+
+  <div id="container_mid">
+    <div class="left" id="bottom_left">4<br></div>
+    <div class="middle" id="bottom_middle">5<br></div>
+    <div class="right" id="bottom_right">6<br></div>
+    <span class="stretch"></span>
+  </div>
+
+  <div id="footer">footer</div>
+
+  <script>
+    $("#top_left").load("areas/top_left.html", function(response, status, xhr) {
+      if (status == "error") {
+        var msg = "Fatal error: ";
+        $("#top_left").html(msg + xhr.status + " " + xhr.statusText);
+      }
+    });
+
+    $("#top_middle").load("areas/top_middle.html", function(response, status, xhr) {
+      if (status == "error") {
+        var msg = "Fatal error: ";
+        $("#top_middle").html(msg + xhr.status + " " + xhr.statusText);
+      }
+    });
+
+    $("#bottom_right").load("areas/bottom_right.html", function(response, status, xhr) {
+      if (status == "error") {
+        var msg = "Fatal error: ";
+        $("#bottom_right").html(msg + xhr.status + " " + xhr.statusText);
+      }
+    });
+
+  </script>
+
+</body>
+</html>
