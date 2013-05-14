@@ -12,44 +12,20 @@
   <div id="header">header</div>
 
   <div id="container_top">
-    <div class="left" id="top_left">1<br></div>
-    <div class="middle" id="top_middle">2<br></div>
-    <div class="right" id="top_right"><iframe id="ifrm" src="areas/top_right.html"></iframe></div>
+    <iframe class="left" id="top_left" sandbox="allow-scripts" src="areas/top_left.html"></iframe>
+    <iframe class="middle" id="top_middle" sandbox="allow-scripts" src="areas/top_middle.html"></iframe>
+    <iframe class="right" id="top_right" sandbox="allow-scripts" src="areas/top_right.html"></iframe>
     <span class="stretch"></span>
   </div>
 
   <div id="container_mid">
-    <div class="left" id="bottom_left">4<br></div>
-    <div class="middle" id="bottom_middle">5<br></div>
-    <div class="right" id="bottom_right">6<br></div>
+    <iframe class="left" id="bottom_left" sandbox="allow-scripts" src="areas/bottom_left.html"></iframe>
+    <iframe class="middle" id="bottom_middle" sandbox="allow-scripts" src="areas/bottom_middle.html"></iframe>
+    <iframe class="right" id="bottom_right" sandbox="allow-scripts" src="areas/bottom_right.html"></iframe>
     <span class="stretch"></span>
   </div>
 
   <div id="footer">footer</div>
-
-  <script>
-    $("#top_left").load("areas/top_left.html", function(response, status, xhr) {
-      if (status == "error") {
-        var msg = "Fatal error: ";
-        $("#top_left").html(msg + xhr.status + " " + xhr.statusText);
-      }
-    });
-
-    $("#top_middle").load("areas/top_middle.html", function(response, status, xhr) {
-      if (status == "error") {
-        var msg = "Fatal error: ";
-        $("#top_middle").html(msg + xhr.status + " " + xhr.statusText);
-      }
-    });
-
-    $("#bottom_right").load("areas/bottom_right.html", function(response, status, xhr) {
-      if (status == "error") {
-        var msg = "Fatal error: ";
-        $("#bottom_right").html(msg + xhr.status + " " + xhr.statusText);
-      }
-    });
-
-  </script>
 
 </body>
 </html>

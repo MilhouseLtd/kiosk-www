@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> - jsFiddle demo</title>
 
-<style>
-.container {
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.6.2.js'></script>
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+  <style type='text/css'>
+    .container {
     position: relative;
     height: 250px;
 }
@@ -24,29 +35,12 @@
     left: 50px;
     top: 50px;
 }
-</style>
+  </style>
 
 
-<div class="container ex1">
-    <div class="output"></div>
 
-    <div class="wrap">
-        <div class="wrapInner">
-            <div class="x">x</div>
-        </div>
-    </div>
-</div>
-<div class="container ex2">
-    <div class="output"></div>
-
-    <div class="wrap">
-        <div class="wrapInner">
-            <div class="x">x</div>
-        </div>
-    </div>
-</div>
-
-<script>
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
 function runExample(container, sinDivide, cosDivide) {
     var track = function(x, y, top, ampl) {
         return {
@@ -66,5 +60,34 @@ function runExample(container, sinDivide, cosDivide) {
 }
 
 runExample($('.ex1'), 20, 25);
-//runExample($('.ex1'), 1, 1);
+runExample($('.ex2'), 1, 1);
+});//]]>
+
 </script>
+
+
+</head>
+<body>
+  <div class="container ex1">
+    <div class="output"></div>
+
+    <div class="wrap">
+        <div class="wrapInner">
+            <div class="x">x</div>
+        </div>
+    </div>
+</div>
+<div class="container ex2">
+    <div class="output"></div>
+
+    <div class="wrap">
+        <div class="wrapInner">
+            <div class="x">x</div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+

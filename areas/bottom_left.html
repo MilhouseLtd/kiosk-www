@@ -1,0 +1,58 @@
+<html>
+<head>
+  <script type="application/javascript">
+
+  var x = 0;
+  var animFlag;
+
+  function init() {
+
+    // Call the sineWave() function repeatedly every 1 microseconds
+    setInterval(function() {sineWave()}, 1)
+  }
+
+
+  function sineWave()
+  {
+    var canvas = document.getElementById("canvas");
+    if (canvas.getContext) {
+      var ctx = canvas.getContext("2d");
+
+      // Find the sine of the angle
+      var y = Math.sin(x*Math.PI/180);
+
+      // If the sine value is positive, map it above y = 100 and change the colour to blue
+      if(y >=0)
+      {
+        y = 100 - (y-0) * 75;
+        ctx.fillStyle = "blue";
+      }
+
+      // If the sine value is negative, map it below y = 100 and change the colour to red
+      if( y < 0 )
+      {
+        y = 100 + (0-y) * 75;
+        ctx.fillStyle = "red";
+      }
+
+      // We will use the fillRect method to draw the actual wave. The length and breath of the
+      ctx.fillRect(x, y, Math.sin(x * Math.PI/180) * 5, Math.sin(x * Math.PI/180) * 5);
+
+      // Increment the angle.
+      x+=1;
+
+      // When the angle reaches 1040, stop the animation.
+      if(x > 1040)
+        clearInterval (animFlag);
+      }
+    }
+  </script>
+
+  <title>Animation - Sine Wave</title>
+  </head>
+  </html>
+
+<body onload="init();">
+  <canvas id="canvas" width="900" height="500"></canvas>
+</body>
+</html>
